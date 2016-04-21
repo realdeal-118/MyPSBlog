@@ -1,0 +1,7 @@
+﻿User stories:
+As an <actor>, I want to be able to <action>, so that I can <reason>
+
+As an admin, I want to be able to delete others posts, so that I can clear any spam.
+
+As a user, I want to be able to delete my own comments, so that I can remove my mistakes.
+As a user, I want to be able to edit my own comments, so that I can correct my mistakes.

@@ -1,0 +1,15 @@
+﻿@using Microsoft.AspNet.Identity
+@model MyPSBlog.Controllers.DeleteBlogViewModel
+
+@if (this.User.IsInRole("Admin") || this.Model.AuthorId == this.User.Identity.GetUserId())
+{
+    using (Html.BeginForm("Delete", "Blogs", FormMethod.Post))
+    {
+        @(Html.AntiForgeryToken())
+        @(this.Html.HiddenFor(model => model.BlogId, new { value = this.Model.BlogId }))
+        <div class="form-actions no-color">
+            <input type="submit" value="x" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+}

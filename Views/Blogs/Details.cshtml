@@ -1,0 +1,130 @@
+﻿@model MyPSBlog.Models.Blog
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Post</h4>
+ 
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdatedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdatedOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Body)
+        </dt>
+
+        <dd>
+            @Html.Raw(Html.DisplayFor(model => model.Body))
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MediaUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MediaUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Publish)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Publish)
+        </dd>
+
+    </dl>
+</div>
+
+
+<div>
+    <table class="table">
+            <tr>
+                <th>
+                    Email
+                </th>
+                <th>
+                    Title
+                </th>
+                <th>
+                    Create
+                </th>
+                <th>
+                    Body
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model.Comments)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Author.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Blog.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedOn)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Body)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.Id}) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+
+        </table>
+</div>
+
+
+
+  <!-- Comments Form -->
+                <div class="well">
+
+
+
+                   
+                  
+                       <div class="form-group">
+                            
+                        </div>
+                   @this.Html.ActionLink("Create Comment", "Create","Comments", new { blogId = Model.Id }, new { })
+                        <button type="submit" class="btn btn-primary">Leave Comment</button>
+                   
+                    
+
+                    
+                   
+                </div>
+                <hr>             
+                
